@@ -1,0 +1,24 @@
+<button class="btn success" (click)="backnav()">back</button>
+<div>
+    <p>
+        <b>Response from parent : "{{ receivedParentMessage }}"</b>
+    </p>
+    <table>
+        <tr>
+            <th>FirstName</th>
+            <th>LastName</th>
+            <th>Country</th>
+            <th>Subject</th>
+            <th>Delete</th>
+        </tr>
+        <tr *ngFor="let data of Userdata;let i=index">
+            <td>{{data.FirstName}}</td>
+            <td>{{data.LastName}}</td>
+            <td>{{data.Country}}</td>
+            <td>{{data.Subject}}</td>
+            <td><button class="btn success" (click)="editdetails(data,i)">Edit</button><button (click)="Delete(i)" class="btn success">Delete</button></td>
+
+        </tr>
+
+    </table>
+</div>

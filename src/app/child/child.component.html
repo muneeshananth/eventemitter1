@@ -1,0 +1,7 @@
+<h1>This is the child component !</h1>
+
+<p>
+    <b>Response from parent : "{{ receivedParentMessage }}"</b>
+</p>
+<app-child [receivedParentMessage]="messageToSendP" (messageToEmit)="getMessage($event)"></app-child>
+<button (click)="sendMessageToParent(messageToSendC)">Send to Parent</button>

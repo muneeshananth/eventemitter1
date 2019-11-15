@@ -1,0 +1,41 @@
+<h3>
+
+    Contact Form</h3>
+<button class="btn success" (click)="backnavlist()">Back</button>
+<div class="container">
+    <form [formGroup]="registerForm" (ngSubmit)="saverecord()">
+
+        <label for="fname">First Name</label>
+        <input type="text" formControlName="firstname" (keypress)="OnlyCharacter($event)" [ngClass]="{ 'is-invalid': submitted && f.firstname.errors }" [(ngModel)]="FirstName" id="fname" name="firstname" placeholder="Your name..">
+
+        <label for="lname">Age</label>
+        <input type="number" formControlName="lastname" [ngClass]="{ 'is-invalid': submitted && f.lastname.errors }" [(ngModel)]="LastName" id="lname" name="lastname" placeholder="Your last name..">
+        <div *ngIf="submitted && f.lastname.errors" class="invalid-feedback">
+            <div *ngIf="f.lastname.errors.required">Company email is required</div>
+
+        </div>
+
+        <div class="form-group">
+            <label>Gender</label>
+            <div class="col-md-4">
+                <label>
+                <input type="radio" name="Gender" formControlName="Gender" value="yes" /> Male
+            </label>
+                <label>
+                <input type="radio" name="Gender" formControlName="Gender" value="no" /> Female
+            </label>
+            </div>
+        </div>
+        <label for="country">Country</label>
+        <select formControlName="country" [(ngModel)]="Country" id="country" name="country">
+      <option value="australia">Australia</option>
+      <option value="canada">Canada</option>
+      <option value="usa">USA</option>
+    </select>
+
+        <label for="subject">Subject</label>
+        <textarea id="subject" formControlName="subject" [(ngModel)]="Subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+
+        <button type="submit" value="Submit">{{buttontext}}</button>
+    </form>
+</div>
